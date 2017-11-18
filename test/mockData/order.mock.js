@@ -1,4 +1,8 @@
 module.exports = {
-  order1: { name: 'Personal' },
-  order2: { name: '' },
+  order1: {
+    symbol: 'AAPL',
+    strategy: 'WWAP',
+    amount: '10',
+  },
+  order2: { symbol: '' },
 };

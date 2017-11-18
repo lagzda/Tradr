@@ -7,8 +7,18 @@ const mongoose = require('mongoose');
 * Define the Database structure for Order (Schema)
 */
 const OrderSchema = new mongoose.Schema({
-  name: {
+  symbol: {
     type: String,
+    required: true,
+    trim: true,
+  },
+  strategy: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  amount: {
+    type: Number,
     required: true,
     trim: true,
   },
