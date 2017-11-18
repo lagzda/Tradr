@@ -1,0 +1,47 @@
+{
+  "name": "tradr",
+  "version": "1.0.0",
+  "description": "Bank of America trading platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 12000 --recursive",
+    "coverage": "istanbul cover _mocha --dir docs/coverage/ -x '**models/**' -x '**test/**' test/unit/auth.unit.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "Trading",
+    "Platform"
+  ],
+  "author": "Ralfs Lagzda",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "babel-eslint": "^8.0.2",
+    "bcrypt": "^1.0.3",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1",
+    "mockgoose": "^7.3.3",
+    "mongoose": "^4.13.0",
+    "mongoose-bcrypt": "^1.5.0",
+    "mongoose-type-email": "^1.0.5",
+    "restify": "^6.3.1",
+    "restify-plugins": "^1.6.0",
+    "restify-router": "^0.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.4.0",
+    "istanbul": "^1.0.0-alpha.2"
+  }
+}
