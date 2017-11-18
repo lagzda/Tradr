@@ -19,7 +19,6 @@ const status = {
 */
 
 router.add('/users', require('./user'));
-router.add('/auth', require('./auth'));
 router.add('/users/:userId/orders', require('./order'));
 
 router.use(async (req, res, next) => {
