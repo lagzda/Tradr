@@ -37,9 +37,23 @@ describe('Market', () => {
     it('resolve', async () => {
       try{
         console.log(MarketService);
-        const authentication = await MarketService.asd("1min", "10", "MSFT", "SMA");
-        expect(authentication).to.eventually.be.a('object');
-        expect(authentication).to.eventually.have.property('Meta Data');
+        const authentication = await MarketService.get("1min", "10", "MSFT", "SMA");
+        //expect(authentication).to.eventually.be.a('object');
+        //expect(authentication).to.eventually.have.property('Meta Data');
+      } catch(err){
+        console.log(err);
+        expect.fail();
+      }
+    });
+  });
+
+  describe('#getDaily()', () => {
+    it('resolve', async () => {
+      try{
+        console.log(MarketService);
+        const authentication = await MarketService.getDaily("AAPL");
+        //expect(authentication).to.eventually.be.a('object');
+        //expect(authentication).to.eventually.have.property('Meta Data');
       } catch(err){
         console.log(err);
         expect.fail();
