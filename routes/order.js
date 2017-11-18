@@ -7,7 +7,7 @@ const router = new Router();
 /**
 * Controllers
 */
-const CardController = require('../controllers/card');
+const OrderController = require('../controllers/order');
 /**
 * Status codes
 */
@@ -21,34 +21,34 @@ router.post('/', async (req, res) => {
   try {
     res.setHeader('content-type', 'application/json');
     res.setHeader('accepts', 'POST');
-    res.send(status.added, await CardController.create(req));
+    res.send(status.added, await OrderController.create(req));
   } catch (err) {
     res.send(status[err.message], { error: err.message });
   }
 });
-router.get('/:cardId', async (req, res) => {
+router.get('/:orderId', async (req, res) => {
   try {
     res.setHeader('content-type', 'application/json');
     res.setHeader('accepts', 'GET');
-    res.send(status.ok, await CardController.read(req));
+    res.send(status.ok, await OrderController.read(req));
   } catch (err) {
     res.send(status[err.message], { error: err.message });
   }
 });
-router.patch('/:cardId', async (req, res) => {
+router.patch('/:orderId', async (req, res) => {
   try {
     res.setHeader('content-type', 'application/json');
     res.setHeader('accepts', 'PATCH');
-    res.send(status.ok, await CardController.update(req));
+    res.send(status.ok, await OrderController.update(req));
   } catch (err) {
     res.send(status[err.message], { error: err.message });
   }
 });
-router.del('/:cardId', async (req, res) => {
+router.del('/:orderId', async (req, res) => {
   try {
     res.setHeader('content-type', 'application/json');
     res.setHeader('accepts', 'DELETE');
-    res.send(status.ok, await CardController.del(req));
+    res.send(status.ok, await OrderController.del(req));
   } catch (err) {
     res.send(status[err.message], { error: err.message });
   }

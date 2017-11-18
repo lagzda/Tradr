@@ -15,12 +15,12 @@ const status = {
 };
 
 /**
-* Routes for the card model
+* Routes for the order model
 */
 
 router.add('/users', require('./user'));
 router.add('/auth', require('./auth'));
-router.add('/users/:userId/cards', require('./card'));
+router.add('/users/:userId/orders', require('./order'));
 
 router.use(async (req, res, next) => {
   try {

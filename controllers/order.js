@@ -1,40 +1,40 @@
 /**
 * Module Dependencies
 */
-const CardService = require('../services/card.service');
+const OrderService = require('../services/order.service');
 
 module.exports = {
   list: () => new Promise(async (resolve, reject) => {
     try {
-      resolve(await CardService.list());
+      resolve(await OrderService.list());
     } catch (err) {
       reject(err);
     }
   }),
   create: req => new Promise(async (resolve, reject) => {
     try {
-      resolve(await CardService.create(req.params.userId, req.body));
+      resolve(await OrderService.create(req.params.userId, req.body));
     } catch (err) {
       reject(err);
     }
   }),
   read: req => new Promise(async (resolve, reject) => {
     try {
-      resolve(await CardService.read(req.params.cardId));
+      resolve(await OrderService.read(req.params.orderId));
     } catch (err) {
       reject(err);
     }
   }),
   update: req => new Promise(async (resolve, reject) => {
     try {
-      resolve(await CardService.update(req.params.cardId, req.body));
+      resolve(await OrderService.update(req.params.orderId, req.body));
     } catch (err) {
       reject(err);
     }
   }),
   del: req => new Promise(async (resolve, reject) => {
     try {
-      resolve(await CardService.del(req.params.cardId));
+      resolve(await OrderService.del(req.params.orderId));
     } catch (err) {
       reject(err);
     }
