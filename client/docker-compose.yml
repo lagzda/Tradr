@@ -1,0 +1,30 @@
+version: '2'
+services:
+  client:
+    build: .
+    ports:
+     - "4210:4210"
+    networks:
+      client_default:
+        ipv4_address: 172.20.0.3
+  data:
+    build: ./../data
+    ports:
+     - "4211:4211"
+    networks:
+      client_default:
+        ipv4_address: 172.20.0.4 
+  db:
+    build: ./../db
+    ports:
+     - "4212:4212"
+    networks:
+      client_default:
+        ipv4_address: 172.20.0.5
+networks:
+  client_default:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.20.0.0/16
+         gateway: 172.20.0.1
