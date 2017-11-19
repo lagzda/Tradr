@@ -6,7 +6,10 @@ const restify = require('restify');
 const mongoose = require('mongoose');
 const restifyPlugins = require('restify-plugins');
 const routerInstance = require('./routes');
-
+/**
+ * Service and Controller Dependencies
+ */
+const TimerService = require('./services/time.service');
 /**
 * Initialize Server
 */
@@ -39,8 +42,13 @@ server.listen(config.port, () => {
     process.exit(1);
   });
 
-  db.once('open', () => {
+  db.once('open', async () => {
     routerInstance.applyRoutes(server);
+    const hourEmmiter = await TimerService.getEmmiter();
+    TimerService.runTimer(3);
+    hourEmmiter.on('tick', () => {
+      console.log('tick');
+    });
     console.log(`Server is listening on port ${config.port}`);
   });
   /* eslint-enable no-console */

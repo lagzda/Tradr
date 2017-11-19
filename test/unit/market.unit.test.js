@@ -6,6 +6,7 @@ const MarketService = require('../../services/market.service');
 /**
 * Dependencies and config
 */
+
 const mongoose = require('mongoose');
 const chai = require('chai');
 
