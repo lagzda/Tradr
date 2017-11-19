@@ -36,3 +36,6 @@ def calculate_volume_and_limit():
         amount = amount_to_buy(fraction, tradeable_amount)
         limit = get_previous_high(history)
         return (amount, limit)
+
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0')    
