@@ -29,17 +29,19 @@ let response;
 
 const post = (symbol, amount) => new Promise(async (resolve, reject) => {
   try {
-    response = await request('http://172.19.0.3:4212', {
+    // console.log(symbol);
+    // console.log(amount);
+    response = await request('http://172.20.0.5:4212/orders/'+symbol+'/'+amount, {
       method: "POST",
       data: {
-        'symbol':symbol,
-        'amount':amount
+        symbol:symbol,
+        amount:amount
       },
       headers:{
         'Content-Type':'application/json'
       }
     });
-    resolve({'message':'Done!'});
+    resolve(response);
   } catch (err) {
     reject(err);
   }

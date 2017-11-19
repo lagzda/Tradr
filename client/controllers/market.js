@@ -12,9 +12,11 @@ const priceCheckLoop = () => new Promise(async (resolve, reject) => {
     ticker.on('tick', async () => {
       console.log("Tick Tock...");
       // const marketData = MarketService.getDaily();
-      const marketData = await request('http://172.20.0.4:4211'); //DATA docker
-      const orderData = await request('http://172.20.0.5:4212'); //DB docker
-      console.log(marketData);
+      let marketData = await request('http://172.20.0.4:4211'); //DATA docker
+      marketData = JSON.parse(marketData.body);
+      let orderData = await request('http://172.20.0.5:4212'); //DB docker
+      orderData = JSON.parse(orderData.body);
+      //console.log(marketData);
       console.log(orderData);
       // const executableOrderList = VwapService.simulateVwap(await marketData, await orderData);
       //MarketService.buy(executableOrderList);
